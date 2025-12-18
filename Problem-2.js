@@ -1,18 +1,11 @@
-const readline = require("readline");
-
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-});
-
-rl.question("Enter a number: ", (input) => {
-  const a = parseInt(input);
+function generateSeries(a) {
   let result = [];
-
   for (let i = 0; i < a; i++) {
     result.push(2 * i + 1);
   }
-
   console.log(result.join(", "));
-  rl.close();
-});
+}
+
+// Call the function 
+const a = 4; //  change this value for testing
+generateSeries(a);
