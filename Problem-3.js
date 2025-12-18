@@ -1,4 +1,4 @@
-function generateConditionalSeries(a) {
+function generateSeries(a) {
   let limit = a % 2 === 0 ? a - 1 : a;
   let result = [];
 
@@ -9,4 +9,4 @@ function generateConditionalSeries(a) {
 }
 
 const a = 6; // input value
-generateConditionalSeries(a);
+generateSeries(a);
