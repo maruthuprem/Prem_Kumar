@@ -1,3 +1,5 @@
+const readline = require("readline");
+
 class Calculator {
   constructor(a, b) {
     this.a = a;
@@ -20,9 +22,18 @@ class Calculator {
   }
 }
 
-// Example
-const calc = new Calculator(10, 5);
-console.log(calc.calculate("add"));
-console.log(calc.calculate("subtract"));
-console.log(calc.calculate("multiply"));
-console.log(calc.calculate("divide"));
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+
+rl.question("Enter first number: ", (a) => {
+  rl.question("Enter second number: ", (b) => {
+    rl.question("Enter operation (add, subtract, multiply, divide): ", (op) => {
+      const calc = new Calculator(parseFloat(a), parseFloat(b));
+      console.log("Result:", calc.calculate(op));
+      rl.close();
+    });
+  });
+});
+
