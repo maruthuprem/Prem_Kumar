@@ -1,5 +1,3 @@
-const readline = require("readline");
-
 class Calculator {
   constructor(a, b) {
     this.a = a;
@@ -17,22 +15,15 @@ class Calculator {
       case "divide":
         return this.b !== 0 ? this.a / this.b : "Division by zero not allowed";
       default:
-        return "Invalid";
+        return "Invalid operation";
     }
   }
 }
 
-const rdl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-});
+// Input values
+const a = 10;
+const b = 5;
+const operation = "add";
 
-rdl.question("Enter first number: ", (a) => {
-  rdl.question("Enter second number: ", (b) => {
-    rdl.question("Enter operation (add, subtract, multiply, divide): ", (op) => {
-      const calc = new Calculator(parseFloat(a), parseFloat(b));
-      console.log("Result:", calc.calculate(op));
-      rdl.close();
-    });
-  });
-});
+const calculator = new Calculator(a, b);
+console.log(calculator.calculate(operation));
