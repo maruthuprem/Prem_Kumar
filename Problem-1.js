@@ -17,23 +17,22 @@ class Calculator {
       case "divide":
         return this.b !== 0 ? this.a / this.b : "Division by zero not allowed";
       default:
-        return "Invalid operation";
+        return "Invalid";
     }
   }
 }
 
-const rl = readline.createInterface({
+const rdl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
 
-rl.question("Enter first number: ", (a) => {
-  rl.question("Enter second number: ", (b) => {
-    rl.question("Enter operation (add, subtract, multiply, divide): ", (op) => {
+rdl.question("Enter first number: ", (a) => {
+  rdl.question("Enter second number: ", (b) => {
+    rdl.question("Enter operation (add, subtract, multiply, divide): ", (op) => {
       const calc = new Calculator(parseFloat(a), parseFloat(b));
       console.log("Result:", calc.calculate(op));
-      rl.close();
+      rdl.close();
     });
   });
 });
-
